@@ -1,5 +1,9 @@
+const Product = require("../models/product.model");
+
 exports.getHomePage = (req, res, next) => {
-  res.render("home");
+  Product.getProducts((products) => {
+    res.render("home", { products });
+  });
 };
 
 exports.get404Page = (req, res, next) => {
