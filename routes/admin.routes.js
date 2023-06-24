@@ -8,6 +8,6 @@ const router = express.Router();
 
 router.get("/add-product", pageController.getAddProduct);
 
-router.post("add-product");
+router.post("/add-product", productsController.setAddProduct);
 
 module.exports = router;
