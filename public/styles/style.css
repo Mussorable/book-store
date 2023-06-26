@@ -1,0 +1,30 @@
+body .container {
+  margin: auto;
+  max-width: 980px;
+}
+
+body header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body header .header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+body .add-product-wrapper {
+  margin-left: 1.5rem;
+}
+body .add-product-wrapper form {
+  display: inline-block;
+}
+body .add-product-wrapper form .input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 3px;
+}
+body .add-product-wrapper form .input-wrapper .input-label {
+  min-width: 100px;
+}/*# sourceMappingURL=style.css.map */
