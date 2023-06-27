@@ -27,4 +27,8 @@ body .add-product-wrapper form .input-wrapper {
 }
 body .add-product-wrapper form .input-wrapper .input-label {
   min-width: 100px;
+}
+body .add-product-wrapper form button {
+  width: 100%;
+  padding-block: 3px;
 }/*# sourceMappingURL=style.css.map */
