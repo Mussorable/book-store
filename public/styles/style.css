@@ -13,6 +13,42 @@ body header .header-nav {
   gap: 1.5rem;
 }
 
+body .products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+body .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+body .product .product-title {
+  margin: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.5rem;
+}
+body .product .product-image {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 225px;
+}
+body .product p {
+  margin: 0;
+}
+body .product p.product-author {
+  font-size: 1.3rem;
+  margin: 0.3rem;
+}
+body .product p.product-price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+
 body .add-product-wrapper {
   margin-left: 1.5rem;
 }

@@ -11,6 +11,7 @@ exports.postAddProduct = (req, res, next) => {
     books.insertOne(req.body, (error, result) => {
       if (error) throw error;
     });
-  }).catch((error) => console.error(error));
-  res.redirect("/");
+  })
+    .catch((error) => console.error(error))
+    .finally(res.redirect("/"));
 };
