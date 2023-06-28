@@ -10,8 +10,8 @@
                 <p class="product-author"><%= item.author %></p>
                 <p class="product-price">$<%= item.price %></p>
                 <div class="product-buttons-wrapper">
-                    <button>Details</button>
-                    <button>Add to Cart</button>
+                  <a href="/product/details/<%= item.id %>">Details</a>
+                  <button>Add to Cart</button>
                 </div>
             </div>
         <% }); %>

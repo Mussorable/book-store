@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 
 const adminRoute = require("./routes/admin.route");
 const clientRoute = require("./routes/client.route");
+const productController = require("./routes/product.route");
 
 const app = express();
 // Explorer settings
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 app.use("/admin", adminRoute);
+app.use("/product", productController);
 app.use(clientRoute);
 
 app.listen(5173);
