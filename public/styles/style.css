@@ -1,0 +1,73 @@
+body .container {
+  margin: auto;
+  max-width: 980px;
+}
+
+body header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+body header .header-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+body .products-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+}
+body .product {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  box-sizing: border-box;
+}
+body .product .product-title {
+  margin: 0;
+  margin-bottom: 0.7rem;
+  font-size: 1.5rem;
+}
+body .product .product-image {
+  width: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+  max-height: 225px;
+}
+body .product p {
+  margin: 0;
+}
+body .product p.product-author {
+  font-size: 1.3rem;
+  margin: 0.3rem;
+}
+body .product p.product-price {
+  font-weight: bold;
+  font-size: 2rem;
+}
+body .product .product-buttons-wrapper form {
+  display: inline-block;
+}
+
+body .add-product-wrapper {
+  margin-left: 1.5rem;
+}
+body .add-product-wrapper form {
+  display: inline-block;
+}
+body .add-product-wrapper form .input-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 3px;
+}
+body .add-product-wrapper form .input-wrapper .input-label {
+  min-width: 100px;
+}
+body .add-product-wrapper form button {
+  width: 100%;
+  padding-block: 3px;
+}/*# sourceMappingURL=style.css.map */

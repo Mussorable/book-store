@@ -1,15 +1,28 @@
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Add Product</title>
-  </head>
-  <body>
-    <h1>Add Product</h1>
-    <form action="/admin/add-product" method="POST">
-      <input type="text" name="product-title" />
-      <button type="submit">Submit</button>
-    </form>
+<%- include('modules/head'); %><%- include('modules/header'); %>
+<html>
+  <!-- <body> -->
+    <!-- <div class="container"> -->
+      <div class="add-product-wrapper">
+        <form action="/admin/add-product" method="POST">
+          <div class="input-wrapper">
+            <label class="input-label" for="title">Title</label>
+            <input required id="title" name="title" type="text" />
+          </div>
+          <div class="input-wrapper">
+            <label class="input-label" for="price">Price</label>
+            <input required id="price" name="price" type="number" />
+          </div>
+          <div class="input-wrapper">
+            <label class="input-label" for="author">Author</label>
+            <input required id="author" name="author" type="text" />
+          </div> 
+          <div class="input-wrapper">
+            <label class="input-label" for="image-link">Image link</label>
+            <input required id="image-link" name="image-link" type="text" />
+          </div>
+          <button type="submit">Add Product</button>
+        </form>
+      </div>
+    </div>
   </body>
 </html>

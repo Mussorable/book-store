@@ -1,0 +1,21 @@
+<%- include('modules/head'); %><%- include('modules/header'); %>
+<html>
+  <!-- <body> -->
+    <!-- <div class="container"> -->
+      <div class="products-container">
+        <% products.forEach(item => { %>
+            <div class="product">
+                <h3 class="product-title"><%= item.title %></h3>
+                <img class="product-image" src="<%= item['image-link'] %>" alt="<%= item.title %> front image">
+                <p class="product-author"><%= item.author %></p>
+                <p class="product-price">$<%= item.price %></p>
+                <div class="product-buttons-wrapper">
+                  <a href="/product/details/<%= item.id %>">Details</a>
+                  <button>Add to Cart</button>
+                </div>
+            </div>
+        <% }); %>
+      </div>
+    </div>
+  </body>
+</html>

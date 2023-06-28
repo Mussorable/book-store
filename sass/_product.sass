@@ -1,0 +1,39 @@
+body
+    .products-container
+        display: grid
+        grid-template-columns: repeat(3, 1fr)
+        gap: 3rem
+
+    .product
+        display: flex
+        flex-direction: column
+        justify-content: center
+        align-items: center
+        border: 2px solid black
+        box-sizing: border-box
+
+        .product-title
+            margin: 0
+            margin-bottom: 0.7rem
+            font-size: 1.5rem
+
+        .product-image
+            width: 100%
+            object-fit: contain
+            max-height: 225px
+
+        p
+            margin: 0
+
+            &.product-author
+                font-size: 1.3rem
+                margin: 0.3rem
+
+            &.product-price
+                font-weight: bold
+                font-size: 2rem
+
+        .product-buttons-wrapper
+
+            form
+                display: inline-block

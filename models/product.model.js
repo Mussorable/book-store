@@ -1,29 +1,40 @@
-const fs = require("fs");
-const path = require("path");
+const setConnectDB = require("../database/connect.db").setConnectDB;
 
-const p = path.join(__dirname, "..", "api", "products.json");
-const getDataFromFile = (cb) => {
-  fs.readFile(p, (err, data) => {
-    if (err) cb([]);
-    cb(JSON.parse(data));
-  });
-};
-
-module.exports = class Product {
-  constructor(title) {
-    this.title = title;
+class Product {
+  constructor(data) {
+    this.title = data.title;
+    this.price = data.price;
+    this.author = data.author;
+    this["image-link"] = data["image-link"];
+    this.id = Math.floor(Math.random() * 10000);
   }
 
-  save() {
-    getDataFromFile((products) => {
-      products.push(this);
-      fs.writeFile(p, JSON.stringify(products), (error) => {
-        console.log(error);
+  async save() {
+    setConnectDB((db) => {
+      const books = db.collection("books");
+
+      books.insertOne(this, (error) => {
+        if (error) throw error;
       });
+    }).catch((error) => console.error(error));
+  }
+
+  static getAllProducts(callback) {
+    setConnectDB((db) => {
+      const books = db.collection("books");
+      books
+        .find()
+        .toArray()
+        .then((result) => {
+          callback(result);
+        })
+        .catch((error) => {
+          throw error;
+        });
     });
   }
 
-  static getProducts(cb) {
-    getDataFromFile(cb);
-  }
-};
+  // static getSingleProduct() {}
+}
+
+module.exports = Product;
