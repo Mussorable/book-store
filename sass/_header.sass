@@ -1,9 +1,25 @@
+@use 'variables' as v
+
 body
     header
-        display: flex
-        align-items: center
-        justify-content: space-between
+        background-color: v.$sec-color
 
-        .header-nav
+        *
+            color: v.$text-color
+
+        .header
             display: flex
-            gap: 1.5rem
+            align-items: center
+            justify-content: space-between
+
+            h1
+                font-size: 2.4rem
+                margin: 0.5rem 0 0.5rem 0.5rem
+
+            .header-nav
+                display: flex
+                gap: 1.5rem
+
+                a
+                    font-size: 1.3rem
+                    text-decoration: none

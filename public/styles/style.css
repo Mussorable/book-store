@@ -1,16 +1,49 @@
-body .container {
+html {
+  font-family: "Agdasima", sans-serif;
+}
+html body {
+  margin: 0;
+  box-sizing: border-box;
+  background-color: #4E6E81;
+}
+html body .container {
   margin: auto;
   max-width: 980px;
 }
 
+.btn {
+  all: inherit;
+  text-decoration: none;
+  display: inline-block;
+  border: 1.5px solid black;
+  border-radius: 3px;
+  background-color: #2E3840;
+  color: white;
+  padding: 3px 7px;
+}
+
 body header {
+  background-color: #F9DBBB;
+}
+body header * {
+  color: #121212;
+}
+body header .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-body header .header-nav {
+body header .header h1 {
+  font-size: 2.4rem;
+  margin: 0.5rem 0 0.5rem 0.5rem;
+}
+body header .header .header-nav {
   display: flex;
   gap: 1.5rem;
+}
+body header .header .header-nav a {
+  font-size: 1.3rem;
+  text-decoration: none;
 }
 
 body .products-container {
@@ -25,6 +58,8 @@ body .product {
   align-items: center;
   border: 2px solid black;
   box-sizing: border-box;
+  margin: 1rem;
+  background-color: #F9DBBB;
 }
 body .product .product-title {
   margin: 0;
