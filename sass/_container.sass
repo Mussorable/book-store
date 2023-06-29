@@ -1,4 +1,13 @@
-body
-    .container
-        margin: auto
-        max-width: 980px
+@use 'variables' as v
+
+html
+    font-family: 'Agdasima', sans-serif
+
+    body
+        margin: 0
+        box-sizing: border-box
+        background-color: v.$main-color
+
+        .container
+            margin: auto
+            max-width: 980px
