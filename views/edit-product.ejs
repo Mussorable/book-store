@@ -1,0 +1,28 @@
+<%- include('modules/head'); %><%- include('modules/header'); %>
+<html>
+  <!-- <body> -->
+    <!-- <div class="container"> -->
+      <div class="add-product-wrapper">
+        <form action="/admin/add-product" method="POST">
+          <div class="input-wrapper">
+            <label class="input-label" for="title">Title</label>
+            <input value="<%= item.title %>" required id="title" name="title" type="text" />
+          </div>
+          <div class="input-wrapper">
+            <label class="input-label" for="price">Price</label>
+            <input value="<%= item.price %>" required id="price" name="price" type="number" />
+          </div>
+          <div class="input-wrapper">
+            <label class="input-label" for="author">Author</label>
+            <input value="<%= item.author %>" required id="author" name="author" type="text" />
+          </div> 
+          <div class="input-wrapper">
+            <label class="input-label" for="image-link">Image link</label>
+            <input value="<%= item['image-link'] %>" required id="image-link" name="image-link" type="text" />
+          </div>
+          <button type="submit">Update Product</button>
+        </form>
+      </div>
+    </div>
+  </body>
+</html>
