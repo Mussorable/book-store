@@ -2,12 +2,14 @@ const setConnectDB = require("../database/connect.db").setConnectDB;
 const mongodb = require("mongodb");
 
 class Product {
-  constructor(data) {
+  constructor(data, userId) {
     this.title = data.title;
     this.price = data.price;
     this.author = data.author;
     this["image-link"] = data["image-link"];
+    this.description = data.description ? data.description : "";
     this._id = data.id ? new mongodb.ObjectId(id) : null;
+    this.userId = userId;
   }
 
   async save() {
