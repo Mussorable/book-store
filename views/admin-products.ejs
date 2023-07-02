@@ -11,7 +11,7 @@
                 <p class="product-price">$<%= item.price %></p>
                 <div class="product-buttons-wrapper">
                   <a class="btn" href="/admin/products/<%= item._id %>">Edit</a>
-                  <button class="btn">Delete</button>
+                  <a class="btn" href="/admin/products/<%= item._id %>/delete"> Delete</a>
                 </div>
             </div>
         <% }); %>

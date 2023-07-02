@@ -1,3 +1,4 @@
+const mongodb = require("mongodb");
 const Product = require("../models/product.model");
 
 exports.getAddProduct = (req, res, next) => {
@@ -9,6 +10,12 @@ exports.postAddProduct = (req, res, next) => {
   product.save().finally(() => res.redirect("/"));
 };
 
+exports.postUpdateProduct = (req, res, next) => {
+  const product = new Product(req.body);
+  product.save();
+  res.redirect("/");
+};
+
 exports.getAdminProductsPage = (req, res, next) => {
   Product.getAllProducts((products) => {
     res.render("admin-products", { products, pageTitle: "Admin Panel" });
@@ -16,12 +23,6 @@ exports.getAdminProductsPage = (req, res, next) => {
 };
 
 exports.getEditProduct = (req, res, next) => {
-  // const editMode = req.query;
-  // console.log(editMode);
-  // if (!editMode) {
-  //   return res.redirect("/");
-  // }
-
   Product.getSingleProduct(req.params.productId, (product) => {
     if (!product) {
       return res.redirect("/");
@@ -31,4 +32,9 @@ exports.getEditProduct = (req, res, next) => {
       pageTitle: `Edit ${product.title}`,
     });
   });
+};
+
+exports.getDeleteProduct = (req, res, next) => {
+  Product.deleteById(req.params.productId);
+  res.redirect("/");
 };
