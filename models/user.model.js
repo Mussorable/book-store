@@ -48,6 +48,32 @@ class User {
     });
   }
 
+  deleteItemFromCart(id) {
+    const updatedCart = this.cart.items.filter(
+      (item) => item.productId.toString() !== id.toString()
+    );
+    setConnectDB((db) => {
+      db.collection("users").updateOne(
+        { _id: new mongodb.ObjectId(this._id) },
+        { $set: { cart: { items: updatedCart } } }
+      );
+    });
+  }
+
+  addOrder() {
+    setConnectDB((db) => {
+      db.collection("orders")
+        .insertOne(this.cart)
+        .then((result) => {
+          this.cart = { items: [] };
+          db.collection("users").updateOne(
+            { _id: new mongodb.ObjectId(this._id) },
+            { $set: { cart: { items: [] } } }
+          );
+        });
+    });
+  }
+
   getCart(callback) {
     const productsIds = this.cart.items.map((product) => product.productId);
     setConnectDB((db) => {
