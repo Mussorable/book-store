@@ -11,7 +11,7 @@
                 <p class="product-price">$<%= item.price %></p>
                 <div class="product-buttons-wrapper">
                   <a class="btn" href="/product/details/<%= item._id %>">Details</a>
-                  <button class="btn">Add to Cart</button>
+                  <a class="btn" href="/product/cart/<%= item._id %>">Add to Cart</a>
                 </div>
             </div>
         <% }); %>
