@@ -3,7 +3,7 @@
   <!-- <body> -->
     <!-- <div class="container"> -->
       <div class="add-product-wrapper">
-        <form action="/admin/add-product" method="POST">
+        <form action="/admin/products/<%= item._id %>" method="POST">
           <div class="input-wrapper">
             <label class="input-label" for="title">Title</label>
             <input value="<%= item.title %>" required id="title" name="title" type="text" />
@@ -20,6 +20,7 @@
             <label class="input-label" for="image-link">Image link</label>
             <input value="<%= item['image-link'] %>" required id="image-link" name="image-link" type="text" />
           </div>
+          <input type="hidden" name="id" value="<%= item._id %>">
           <button type="submit">Update Product</button>
         </form>
       </div>
