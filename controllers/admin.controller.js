@@ -6,7 +6,7 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body);
+  const product = new Product(req.body, req.user._id);
   product.save().finally(() => res.redirect("/"));
 };
 

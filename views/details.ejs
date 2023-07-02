@@ -7,9 +7,9 @@
         <img class="product-image" src="<%= item['image-link'] %>" alt="<%= item.title %> front image">
         <p class="product-author"><%= item.author %></p>
         <p class="product-price">$<%= item.price %></p>
+        <p class="product-description"><%= item?.description %></p>
         <div class="product-buttons-wrapper">
-            <a class="btn" href="/product/details/<%= item._id %>">Edit</a>
-            <button class="btn">Delete</button>
+            <a href="/" class="btn">Home</a>
         </div>
       </div>
     </div>
