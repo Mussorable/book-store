@@ -1,0 +1,17 @@
+<%- include('modules/head'); %><%- include('modules/header'); %>
+<html>
+  <!-- <body> -->
+    <div class="container cart-wrapper">
+        <% products.forEach(item => { %>
+            <div class="cart-item">
+                <h3 class="cart-title"><%= item.title %></h3>
+                <p class="cart-quantity">Quantity: <%= item.quantity %></p>
+                <p class="cart-price">Price: <%= item.price * item.quantity %></p>
+            </div>
+        <% }); %>
+        <div class="total-wrapper">
+          <p>Total Price: <%= products.reduce((acc, currentValue) => acc + ( parseInt(currentValue.price) * parseInt(currentValue.quantity)), 0) %></p>
+        </div>
+    </div>
+  </body>
+</html>

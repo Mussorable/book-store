@@ -12,3 +12,9 @@ exports.postCart = (req, res, next) => {
     return req.user.addToCart(product);
   });
 };
+
+exports.getCart = (req, res, next) => {
+  req.user.getCart((cart) =>
+    res.render("cart", { products: cart, pageTitle: "Cart" })
+  );
+};

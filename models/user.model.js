@@ -48,6 +48,26 @@ class User {
     });
   }
 
+  getCart(callback) {
+    const productsIds = this.cart.items.map((product) => product.productId);
+    setConnectDB((db) => {
+      db.collection("books")
+        .find({ _id: { $in: productsIds } })
+        .toArray()
+        .then((result) => {
+          const finalResult = result.map((product) => {
+            return {
+              ...product,
+              quantity: this.cart.items.find((item) => {
+                return item.productId.toString() === product._id.toString();
+              }).quantity,
+            };
+          });
+          callback(finalResult);
+        });
+    });
+  }
+
   static findById(id, callback) {
     setConnectDB((db) => {
       db.collection("users")

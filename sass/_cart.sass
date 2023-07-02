@@ -1,0 +1,29 @@
+@use 'variables' as v
+
+body
+    .cart-wrapper
+        display: flex
+        flex-direction: column
+        gap: 0.5rem
+        margin-top: 1rem !important
+
+        .cart-item
+            display: flex
+            align-items: center
+            justify-content: space-between
+            border: 1px solid v.$text-color
+            background-color: v.$sec-color
+            padding-inline: 1rem
+            padding-block: .3rem
+
+            *
+                text-align: center
+
+            .cart-title
+                width: 200px
+
+            .cart-quantity
+                width: 70px
+
+            .cart-price
+                width: 70px

@@ -112,4 +112,32 @@ body .add-product-wrapper form .input-wrapper .input-label {
 body .add-product-wrapper form button {
   width: 100%;
   padding-block: 3px;
+}
+
+body .cart-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-top: 1rem !important;
+}
+body .cart-wrapper .cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid #121212;
+  background-color: #F9DBBB;
+  padding-inline: 1rem;
+  padding-block: 0.3rem;
+}
+body .cart-wrapper .cart-item * {
+  text-align: center;
+}
+body .cart-wrapper .cart-item .cart-title {
+  width: 200px;
+}
+body .cart-wrapper .cart-item .cart-quantity {
+  width: 70px;
+}
+body .cart-wrapper .cart-item .cart-price {
+  width: 70px;
 }/*# sourceMappingURL=style.css.map */
