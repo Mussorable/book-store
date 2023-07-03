@@ -6,8 +6,17 @@ exports.getAddProduct = (req, res, next) => {
 };
 
 exports.postAddProduct = (req, res, next) => {
-  const product = new Product(req.body, req.user._id);
-  product.save().finally(() => res.redirect("/"));
+  const product = new Product({
+    title: req.body.title,
+    price: req.body.price,
+    description: req.body.description,
+    author: req.body.author,
+    imageUrl: req.body["image-link"],
+  });
+  product
+    .save()
+    .then(() => res.redirect("/"))
+    .catch((error) => console.error(error));
 };
 
 exports.postUpdateProduct = (req, res, next) => {
