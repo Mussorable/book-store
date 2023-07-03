@@ -27,8 +27,6 @@ app.use("/product", productController);
 app.use(clientRoute);
 
 mongoose
-  .connect(
-    "mongodb+srv://Mussorable:qChxEQN1Q6rlS4Mg@cluster0.i83bgon.mongodb.net/shop?"
-  )
+  .connect("CONNECTION STRING")
   .then(() => app.listen(5173))
   .catch((error) => console.error(error));
