@@ -4,16 +4,16 @@
     <div class="container cart-wrapper">
         <% products.forEach(item => { %>
             <div class="cart-item">
-                <h3 class="cart-title"><%= item.title %></h3>
+                <h3 class="cart-title"><%= item.productId.title %></h3>
                 <p class="cart-quantity">Quantity: <%= item.quantity %></p>
                 <div class="last-column">
-                  <p class="cart-price">Price: <%= item.price * item.quantity %></p>
+                  <p class="cart-price">Price: <%= item.productId.price * item.quantity %></p>
                   <a class="delete-btn" href="product/cart/<%= item._id %>/delete">Delete</a>
                 </div>
             </div>
         <% }); %>
         <div class="total-wrapper">
-          <p>Total Price: <%= products.reduce((acc, currentValue) => acc + ( parseInt(currentValue.price) * parseInt(currentValue.quantity)), 0) %></p>
+          <p>Total Price: <%= products.reduce((acc, currentValue) => acc + ( parseInt(currentValue.productId.price) * parseInt(currentValue.quantity)), 0) %></p>
           <a class="btn" href="/set-order">Order Now</a>
         </div>
     </div>

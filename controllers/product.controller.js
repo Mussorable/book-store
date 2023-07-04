@@ -8,21 +8,24 @@ exports.getProductDetails = (req, res, next) => {
 
 exports.postCart = (req, res, next) => {
   const productId = req.params.productId;
-  return Product.getSingleProduct(productId, (product) => {
+  Product.findById(productId).then((product) => {
     req.user.addToCart(product);
     res.redirect("/");
   });
 };
 
 exports.getCart = (req, res, next) => {
-  req.user.getCart((cart) =>
-    res.render("cart", { products: cart, pageTitle: "Cart" })
-  );
+  req.user
+    .populate("cart.items.productId")
+    .then((user) =>
+      res.render("cart", { products: user.cart.items, pageTitle: "Cart" })
+    );
 };
 
 exports.postCartDeleteProduct = (req, res, next) => {
-  req.user.deleteItemFromCart(req.params.productId);
-  res.redirect("/cart");
+  req.user
+    .deleteItemFromCart(req.params.productId)
+    .then(() => res.redirect("/cart"));
 };
 
 exports.postOrder = (req, res, next) => {
