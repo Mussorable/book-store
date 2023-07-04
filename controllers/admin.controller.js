@@ -12,6 +12,7 @@ exports.postAddProduct = (req, res, next) => {
     description: req.body.description,
     author: req.body.author,
     imageUrl: req.body["image-link"],
+    userId: req.user,
   });
   product
     .save()
@@ -20,19 +21,27 @@ exports.postAddProduct = (req, res, next) => {
 };
 
 exports.postUpdateProduct = (req, res, next) => {
-  const product = new Product(req.body);
-  product.save();
-  res.redirect("/");
+  Product.findById(req.body.id)
+    .then((product) => {
+      console.log(req.body);
+      product.title = req.body.title;
+      product.description = req.body.description;
+      product.imageUrl = req.body.imageUrl;
+      product.author = req.body.author;
+      product.price = req.body.price;
+      return product.save();
+    })
+    .then((result) => res.redirect("/"));
 };
 
 exports.getAdminProductsPage = (req, res, next) => {
-  Product.getAllProducts((products) => {
+  Product.find().then((products) => {
     res.render("admin-products", { products, pageTitle: "Admin Panel" });
   });
 };
 
 exports.getEditProduct = (req, res, next) => {
-  Product.getSingleProduct(req.params.productId, (product) => {
+  Product.findById(req.params.productId).then((product) => {
     if (!product) {
       return res.redirect("/");
     }
@@ -44,6 +53,5 @@ exports.getEditProduct = (req, res, next) => {
 };
 
 exports.getDeleteProduct = (req, res, next) => {
-  Product.deleteById(req.params.productId);
-  res.redirect("/");
+  Product.findByIdAndRemove(req.params.productId).then(() => res.redirect("/"));
 };

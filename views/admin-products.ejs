@@ -6,7 +6,7 @@
         <% products.forEach(item => { %>
             <div class="product">
                 <h3 class="product-title"><%= item.title %></h3>
-                <img class="product-image" src="<%= item['image-link'] %>" alt="<%= item.title %> front image">
+                <img class="product-image" src="<%= item.imageUrl %>" alt="<%= item.title %> front image">
                 <p class="product-author"><%= item.author %></p>
                 <p class="product-price">$<%= item.price %></p>
                 <div class="product-buttons-wrapper">

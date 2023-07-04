@@ -17,12 +17,12 @@
             <input value="<%= item.author %>" required id="author" name="author" type="text" />
           </div> 
           <div class="input-wrapper">
-            <label class="input-label" for="image-link">Image link</label>
-            <input value="<%= item['image-link'] %>" required id="image-link" name="image-link" type="text" />
+            <label class="input-label" for="imageUrl">Image link</label>
+            <input value="<%= item.imageUrl %>" required id="imageUrl" name="imageUrl" type="text" />
           </div>
           <div class="input-wrapper">
             <label for="description">Description</label>
-            <textarea value="<%= image.description %>" name="description" required id="description" cols="30" rows="10"></textarea>
+            <textarea name="description" required id="description" cols="30" rows="10"><%= item.description %></textarea>
           </div>
           <input type="hidden" name="id" value="<%= item._id %>">
           <button type="submit">Update Product</button>
